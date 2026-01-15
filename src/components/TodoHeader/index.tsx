@@ -1,15 +1,31 @@
 import IconSun from "/images/icon-sun.svg";
+import IconMoon from "/images/icon-moon.svg";
+import { ThemeContext } from "../../contexts/ThemeContext";
+import { useContext } from "react";
 
-const Todoheader = () => {
-   return (    
-     <header className="flex justify-between mb-6 pt-20">
-          <h1 className="text-white text-[2.5rem] font-bold tracking-[1rem]">TODO</h1>
-        
-          <button>
-            <img className="w-8 h-8"src={IconSun} alt="Alternar Tema" />
-          </button>
-        </header>    
-   );
+const TodoHeader = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  const isLight = theme === "light";
+
+  return (
+    <header className="flex justify-between mb-6 pt-20">
+      <h1
+        className={`text-[2.5rem] font-bold tracking-[1rem] ${
+          isLight ? "text-neutral-very-dark-blue" : "text-white"
+        }`}
+      >
+        TODO
+      </h1>
+
+      <button className="cursor-pointer" onClick={toggleTheme}>
+        <img
+          className="w-8 h-8"
+          src={isLight ? IconMoon : IconSun}
+          alt="Alternar Tema"
+        />
+      </button>
+    </header>
+  );
 };
 
-export default Todoheader;
+export default TodoHeader;

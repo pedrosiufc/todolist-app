@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import TodoForm from "./components/TodoForm";
 import TodoHeader from "./components/TodoHeader";
+import { ThemeContext } from "./contexts/ThemeContext";
 
 const todos = [
   { id: 1, text: "Todo 1" },
@@ -8,6 +10,9 @@ const todos = [
 ];
 
 function App() {
+   const {theme} =useContext(ThemeContext);
+   const isLight = theme === "light";
+
   return (
     <main className="bg-neutral-very-dark-blue h-screen">
       <div className="bg-[url('/images/bg-desktop-dark.jpg')] h-80 bg-cover bg-center">
@@ -17,10 +22,19 @@ function App() {
           <div className="bg-neutral-very-dark-desaturated-blue rounded-md">
             <ul>
               {todos.map((todo) => (
-                <li className="p-6 border-b bg-neutral-very-dark-desaturated-blue rounded-md" key={todo.id}>
+                <li className= {`p-6 border-b ${
+                  isLight
+                  ? "bg-white border-neutral-dark-grayish-blue" 
+                  :"bg-neutral-very-dark-desaturated-blue rounded-md"
+                } `} key={todo.id}>
                   <div className="flex items-center gap-4">
                     <button className="w-6 h-6 border border-neutral-very-dark-grayish-blue rounded-full cursor-pointer"></button>
-                    <p className="text-neutral-very-light-grayish-blue">{todo.text}</p>
+                    <p className={`${
+                      isLight
+                    ? "text-neutral-very-light-grayish-blue"
+                    : "text-neutral-very-light-grayish-blue" }`}
+                    >
+                    {todo.text}</p>
                   </div>
                 </li>
               ))}
