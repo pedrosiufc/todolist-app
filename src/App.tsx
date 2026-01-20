@@ -14,32 +14,59 @@ function App() {
    const isLight = theme === "light";
 
   return (
-    <main className="bg-neutral-very-dark-blue h-screen">
-      <div className="bg-[url('/images/bg-desktop-dark.jpg')] h-80 bg-cover bg-center">
+    <main 
+     className= {`${
+      isLight ?
+       "bg-neutral-very-light-gray" :
+       "bg-neutral-very-dark-blue"
+    } h-screen`} >
+
+      <div 
+      className=
+      {`${
+        isLight 
+        ? "bg-[url('/images/bg-desktop-light.jpg')]"
+        : "bg-[url('/images/bg-desktop-dark.jpg')]"
+      } h-80 bg-cover bg-center`}>
+
         <div className="max-w-[43.75rem] m-auto p-8">
           <TodoHeader></TodoHeader>
           <TodoForm></TodoForm>
-          <div className="bg-neutral-very-dark-desaturated-blue rounded-md">
+         
+          <div 
+          className={` 
+            ${isLight
+              ? "bg-white"
+              : "bg-neutral-very-dark-desaturated-blue"
+            } rounded-md `}>
+              
             <ul>
               {todos.map((todo) => (
                 <li className= {`p-6 border-b ${
                   isLight
                   ? "bg-white border-neutral-dark-grayish-blue" 
-                  :"bg-neutral-very-dark-desaturated-blue rounded-md"
-                } `} key={todo.id}>
+                  : "bg-neutral-very-dark-desaturated-blue"
+                } rounded-md `} key={todo.id}>
+
                   <div className="flex items-center gap-4">
                     <button className="w-6 h-6 border border-neutral-very-dark-grayish-blue rounded-full cursor-pointer"></button>
-                    <p className={`${
+                    <p 
+                    className={`${
                       isLight
-                    ? "text-neutral-very-light-grayish-blue"
-                    : "text-neutral-very-light-grayish-blue" }`}
+                    ? "text-neutral-very-dark-grayish-blue"
+                    : "text-neutral-very-light-grayish-blue"}`}
                     >
                     {todo.text}</p>
                   </div>
                 </li>
               ))}
             </ul>
-              <div className="flex justify-between p-4 text-neutral-very-light-grayish-blue">
+              <div className= {`flex justify-between p-4 ${
+                isLight
+                ? "text-neutral-dark-grayish-blue"
+                : "text-neutral-very-light-grayish-blue"
+              }`}>
+
                 <p>{todos.length} items total</p>
                 <div className="flex gap-4">
                   <button>All</button>
@@ -48,7 +75,6 @@ function App() {
                 </div>
                 <button>Clear Selected</button>
               </div>
-
           </div>
         </div>
       </div>
