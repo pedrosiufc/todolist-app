@@ -11,7 +11,7 @@ const TodoHeader = () => {
     <header className="flex justify-between mb-6 pt-20">
       <h1
         className={`text-[2.5rem] font-bold tracking-[1rem] ${
-          isLight ? "text-neutral-very-dark-blue" : "text-white"
+          isLight ? "text-white" : "text-white"
         }`}
       >
         TODO
