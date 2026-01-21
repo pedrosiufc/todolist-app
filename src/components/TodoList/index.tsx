@@ -38,7 +38,7 @@ const TodoList = () => {
         <p>{todos.length} Items Total</p>
 
         <div className="flex gap-4">
-          <button className="text-bright-blue">All</button>
+          <button>All</button>
           <button>Active</button>
           <button>Completed</button>
         </div>

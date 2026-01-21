@@ -69,7 +69,7 @@ function App() {
 
                 <p>{todos.length} items total</p>
                 <div className="flex gap-4">
-                  <button>All</button>
+                  <button className="text-bright-blue">All</button>
                   <button>Active</button>
                   <button>Complited</button>
                 </div>
