@@ -33,7 +33,9 @@ const TodoList = () => {
         </ul>
       </div>
 
-      <div className={`text-sm flex justify-between p-4 ${themeConfig[theme].layout.textColor}`}>
+      <div className={`text-sm flex justify-between p-4 
+        ${themeConfig[theme].todo.backgroundColor} 
+        ${themeConfig[theme].layout.textColor} rounded-b-md`}>
 
         <p>{todos.length} Items Total</p>
 
