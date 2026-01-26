@@ -12,7 +12,7 @@ export const themeConfig = {
         todo: {
             backgroundColor: 'bg-neutral-very-light-gray',
             borderColor: 'border-neutral-very-light-grayish-blue',
-            textColor: 'text-neutral-very-dark-grayish-blue'
+            textColor: 'text-neutral-dark-grayish-blue'
         },
         icon: IconMoon
     },
@@ -27,7 +27,7 @@ export const themeConfig = {
         todo: {
             backgroundColor: 'bg-neutral-very-dark-desaturated-blue',
             borderColor: 'border-neutral-very-dark-grayish-blue',
-            textColor: 'text-neutral-light-grayish-blue',
+            textColor: 'text-neutral-dark-grayish-blue',
         },
         icon: IconSun
     },

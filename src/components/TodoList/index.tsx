@@ -33,19 +33,29 @@ const TodoList = () => {
         </ul>
       </div>
 
-      <div className={`text-sm flex justify-between p-4 
-        ${themeConfig[theme].todo.backgroundColor} 
-        ${themeConfig[theme].layout.textColor} rounded-b-md`}>
+      <div className="space-y-4">
+        <div
+          className={`text-sm flex justify-between p-4 
+          ${themeConfig[theme].todo.backgroundColor} 
+          ${themeConfig[theme].layout.textColor} 
+          rounded-b-md`}
+        >
+          <p>{todos.length} Items Total</p>
 
-        <p>{todos.length} Items Total</p>
+          <div className="hidden sm:flex gap-4"></div>
 
-        <div className="flex gap-4">
+          <button>Clear Completed</button>
+        </div>
+
+        <div
+          className={`${themeConfig[theme].todo.backgroundColor} 
+          ${themeConfig[theme].layout.textColor}
+          flex justify-center gap-5 py-4 rounded-md mt-4}`}
+        >
           <button className="text-bright-blue">All</button>
           <button>Active</button>
           <button>Completed</button>
         </div>
-
-        <button>Clear Completed</button>
       </div>
     </>
   );
