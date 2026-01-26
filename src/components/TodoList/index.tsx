@@ -37,7 +37,7 @@ const TodoList = () => {
         <div
           className={`text-sm flex justify-between p-4 
           ${themeConfig[theme].todo.backgroundColor} 
-          ${themeConfig[theme].layout.textColor} 
+          ${themeConfig[theme].todo.textColor} 
           rounded-b-md`}
         >
           <p>{todos.length} Items Total</p>
@@ -49,7 +49,7 @@ const TodoList = () => {
 
         <div
           className={`${themeConfig[theme].todo.backgroundColor} 
-          ${themeConfig[theme].layout.textColor}
+          ${themeConfig[theme].todo.textColor}
           flex justify-center gap-5 py-4 rounded-md mt-4}`}
         >
           <button className="text-bright-blue">All</button>
