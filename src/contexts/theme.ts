@@ -5,6 +5,7 @@ export const themeConfig = {
     light: {
         name: 'light',
         layout: {
+            heroClass: 'theme-light',
             backgroundColor: 'bg-neutral-very-light-grayish-blue',
             textColor: 'text-neutral-dark-grayish-blue',
         },
@@ -19,6 +20,7 @@ export const themeConfig = {
     dark: {
         name: 'dark',
         layout: {
+            heroClass: 'theme-dark',
             backgroundColor: 'bg-neutral-very-dark-blue',
             textColor: 'text-neutral-light-grayish-blue-dark'
         },

@@ -22,7 +22,7 @@ const TodoList = () => {
             >
               <div className="flex items-center gap-4">
                 <button
-                  className={`"w-6 h-6 border ${themeConfig[theme].todo.borderColor} rounded-full cursor-pointer"`}
+                  className={`w-6 h-6 border ${themeConfig[theme].todo.borderColor} rounded-full cursor-pointer`}
                 ></button>
                 <p className={`${themeConfig[theme].todo.textColor}`}>
                   {todo.text}
@@ -33,12 +33,12 @@ const TodoList = () => {
         </ul>
       </div>
 
-      <div className={`"flex justify-between p-4 ${themeConfig[theme].layout.textColor}`}>
+      <div className={`flex justify-between p-4 ${themeConfig[theme].layout.textColor}`}>
 
         <p>{todos.length} Items Total</p>
 
         <div className="flex gap-4">
-          <button>All</button>
+          <button className="text-bright-blue">All</button>
           <button>Active</button>
           <button>Completed</button>
         </div>

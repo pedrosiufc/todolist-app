@@ -2,6 +2,8 @@ import { useContext } from "react";
 import TodoForm from "./components/TodoForm";
 import TodoHeader from "./components/TodoHeader";
 import { ThemeContext } from "./contexts/ThemeContext";
+import { themeConfig } from "./contexts/theme";
+import TodoList from "./components/TodoList";
 
 const todos = [
   { id: 1, text: "Todo 1" },
@@ -11,71 +13,22 @@ const todos = [
 
 function App() {
    const {theme} =useContext(ThemeContext);
-   const isLight = theme === "light";
-
+  
   return (
     <main 
-     className= {`${
-      isLight ?
-       "bg-neutral-very-light-gray" :
-       "bg-neutral-very-dark-blue"
-    } h-screen`} >
-
+      className={`h-screen ${themeConfig[theme].layout.backgroundColor}`}
+    >
       <div 
       className=
-      {`${
-        isLight 
-        ? "bg-[url('/images/bg-desktop-light.jpg')]"
-        : "bg-[url('/images/bg-desktop-dark.jpg')]"
+      {`${themeConfig[theme].layout.heroClass
       } h-80 bg-cover bg-center`}>
 
         <div className="max-w-[43.75rem] m-auto p-8">
+          
           <TodoHeader></TodoHeader>
           <TodoForm></TodoForm>
-         
-          <div 
-          className={` 
-            ${isLight
-              ? "bg-white"
-              : "bg-neutral-very-dark-desaturated-blue"
-            } rounded-md `}>
-              
-            <ul>
-              {todos.map((todo) => (
-                <li className= {`p-6 border-b ${
-                  isLight
-                  ? "bg-white border-neutral-dark-grayish-blue" 
-                  : "bg-neutral-very-dark-desaturated-blue"
-                } rounded-md `} key={todo.id}>
+          <TodoList></TodoList>
 
-                  <div className="flex items-center gap-4">
-                    <button className="w-6 h-6 border border-neutral-very-dark-grayish-blue rounded-full cursor-pointer"></button>
-                    <p 
-                    className={`${
-                      isLight
-                    ? "text-neutral-very-dark-grayish-blue"
-                    : "text-neutral-very-light-grayish-blue"}`}
-                    >
-                    {todo.text}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-              <div className= {`flex justify-between p-4 ${
-                isLight
-                ? "text-neutral-dark-grayish-blue"
-                : "text-neutral-very-light-grayish-blue"
-              }`}>
-
-                <p>{todos.length} items total</p>
-                <div className="flex gap-4">
-                  <button className="text-bright-blue">All</button>
-                  <button>Active</button>
-                  <button>Complited</button>
-                </div>
-                <button>Clear Selected</button>
-              </div>
-          </div>
         </div>
       </div>
     </main>
