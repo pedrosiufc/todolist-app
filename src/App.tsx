@@ -1,37 +1,16 @@
-import { useContext } from "react";
 import TodoForm from "./components/TodoForm";
 import TodoHeader from "./components/TodoHeader";
-import { ThemeContext } from "./contexts/ThemeContext";
-import { themeConfig } from "./contexts/theme";
 import TodoList from "./components/TodoList";
-
-const todos = [
-  { id: 1, text: "Todo 1" },
-  { id: 2, text: "Todo 2" },
-  { id: 3, text: "Todo 3" },
-];
+import { TodoContainer } from "./components/TodoContainer";
 
 function App() {
-   const {theme} =useContext(ThemeContext);
-  
+ 
   return (
-    <main 
-      className={`h-screen ${themeConfig[theme].layout.backgroundColor}`}
-    >
-      <div 
-      className=
-      {`${themeConfig[theme].layout.heroClass
-      } h-80 bg-cover bg-center`}>
-
-        <div className="max-w-[43.75rem] m-auto p-8">
-          
-          <TodoHeader></TodoHeader>
-          <TodoForm></TodoForm>
-          <TodoList></TodoList>
-
-        </div>
-      </div>
-    </main>
+    <TodoContainer>
+      <TodoHeader></TodoHeader>
+      <TodoForm></TodoForm>
+      <TodoList></TodoList>
+    </TodoContainer>
   );
 }
 
