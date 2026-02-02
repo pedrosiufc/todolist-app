@@ -1,15 +1,43 @@
+import {useState, type FormEvent} from "react";
 import TodoForm from "./components/TodoForm";
 import TodoHeader from "./components/TodoHeader";
 import TodoList from "./components/TodoList";
 import { TodoContainer } from "./components/TodoContainer";
 
-function App() {
- 
+ export interface Todo {
+    id: number;
+    text: string;
+    completed: boolean;
+  }
+
+
+function App() { 
+
+  const [todoList, setTodoList] = useState<Todo[]>([]);
+
+  const addTodo = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const todoItem = formData.get("todo") as string
+
+    if(!todoItem.trim()) return
+    
+    setTodoList(prev => [...prev,{
+      id: Date.now(),
+      text: todoItem,
+      completed: false
+    }]);
+
+    event.currentTarget.reset();
+
+  };
+
   return (
     <TodoContainer>
       <TodoHeader></TodoHeader>
-      <TodoForm></TodoForm>
-      <TodoList></TodoList>
+      <TodoForm addTodo={addTodo}></TodoForm>
+      <TodoList todoList={todoList}></TodoList>
     </TodoContainer>
   );
 }
