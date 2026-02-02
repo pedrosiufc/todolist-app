@@ -21,9 +21,13 @@ const TodoList = () => {
               key={todo.id}
             >
               <div className="flex items-center gap-4">
-                <button
-                  className={`w-6 h-6 border ${themeConfig[theme].todo.borderColor} rounded-full cursor-pointer`}
-                ></button>
+                <span className="w-6 h-6 rounded-full hover:bg-[linear-gradient(to_right,hsl(192,_100%,_67%),hsl(280,_87%,_65%))] hover:p-[1px]">
+                  <button
+                    className={`w-full h-full border ${themeConfig[theme].todo.borderColor} rounded-full cursor-pointer ${
+                      themeConfig[theme].todo.backgroundColor
+                    }`}
+                  />
+                </span>
                 <p className={`${themeConfig[theme].todo.textColor}`}>
                   {todo.text}
                 </p>
@@ -43,12 +47,28 @@ const TodoList = () => {
           <p>{todos.length} Items Total</p>
 
           <div className="hidden sm:flex gap-4">
-            <button className="text-bright-blue">All</button>
-            <button>Active</button>
-            <button>Completed</button>
+            <button
+              className={`text-bright-blue cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
+            >
+              All
+            </button>
+            <button
+              className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
+            >
+              Active
+            </button>
+            <button
+              className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
+            >
+              Completed
+            </button>
           </div>
 
-          <button>Clear Completed</button>
+          <button
+            className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
+          >
+            Clear Completed
+          </button>
         </div>
 
         <div
@@ -56,9 +76,21 @@ const TodoList = () => {
         ${themeConfig[theme].todo.textColor}
          flex justify-center gap-5 py-4 rounded-md sm:hidden mt-4`}
         >
-            <button className="text-bright-blue">All</button>
-            <button>Active</button>
-            <button>Completed</button>
+          <button
+            className={`text-bright-blue cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
+          >
+            All
+          </button>
+          <button
+            className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
+          >
+            Active
+          </button>
+          <button
+            className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
+          >
+            Completed
+          </button>
         </div>
       </div>
     </>
