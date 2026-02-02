@@ -7,9 +7,9 @@ const TodoHeader = () => {
   const isLight = theme === "light";
 
   return (
-    <header className="flex justify-between mb-6 pt-20">
+    <header className="flex justify-between pt-20 items-center mb-6">
       <h1
-        className={`text-[2.5rem] font-bold tracking-[1rem]
+        className={`text-[2.5rem] font-bold tracking-[1rem] 
           ${isLight ? "text-white" : "text-white" }`}
               >
         TODO
