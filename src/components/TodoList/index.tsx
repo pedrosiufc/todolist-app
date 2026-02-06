@@ -22,15 +22,6 @@ const TodoList = ({ todoList, toggleTodoCompleted }: TodoListProps) => {
             >
               <div className="flex items-center gap-4">
                 <span className="w-6 h-6 rounded-full hover:bg-[linear-gradient(to_right,hsl(192,_100%,_67%),hsl(280,_87%,_65%))] hover:p-[1px]">
-                  {/* <button
-                    onClick={() => toggleTodoCompleted(todo.id)}
-                    className={`w-full h-full border ${themeConfig[theme].todo.borderColor} rounded-full cursor-pointer ${
-                      themeConfig[theme].todo.backgroundColor
-                    }`}              
-                  >
-                  <img src="images/icon-check.svg" alt="check icon">
-                  </button> */}
-
                   <button
                     onClick={() => toggleTodoCompleted(todo.id)}
                     aria-label="Toggle todo completed"
