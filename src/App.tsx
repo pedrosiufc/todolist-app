@@ -33,11 +33,27 @@ function App() {
 
   };
 
+  const toggleTodoCompleted = (id: number) => {
+    console.log(id)
+    const newtodoList = todoList.map(todo =>{
+      if(id === todo.id){
+        const completed = !todo.completed;
+       return {
+        ...todo,
+        completed,
+        };
+      }
+      return todo
+    });
+
+    setTodoList(newtodoList)
+  };
+
   return (
     <TodoContainer>
       <TodoHeader></TodoHeader>
       <TodoForm addTodo={addTodo}></TodoForm>
-      <TodoList todoList={todoList}></TodoList>
+      <TodoList todoList={todoList} toggleTodoCompleted={toggleTodoCompleted}></TodoList>
     </TodoContainer>
   );
 }

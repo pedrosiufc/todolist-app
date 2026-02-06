@@ -5,9 +5,10 @@ import type { Todo } from "../../App";
 
 interface TodoListProps {
   todoList: Todo[];
+  toggleTodoCompleted: (id: number) => void;
 }
 
-const TodoList = ({ todoList }: TodoListProps) => {
+const TodoList = ({ todoList, toggleTodoCompleted }: TodoListProps) => {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -21,13 +22,39 @@ const TodoList = ({ todoList }: TodoListProps) => {
             >
               <div className="flex items-center gap-4">
                 <span className="w-6 h-6 rounded-full hover:bg-[linear-gradient(to_right,hsl(192,_100%,_67%),hsl(280,_87%,_65%))] hover:p-[1px]">
-                  <button
+                  {/* <button
+                    onClick={() => toggleTodoCompleted(todo.id)}
                     className={`w-full h-full border ${themeConfig[theme].todo.borderColor} rounded-full cursor-pointer ${
                       themeConfig[theme].todo.backgroundColor
+                    }`}              
+                  >
+                  <img src="images/icon-check.svg" alt="check icon">
+                  </button> */}
+
+                  <button
+                    onClick={() => toggleTodoCompleted(todo.id)}
+                    aria-label="Toggle todo completed"
+                    className={`w-full h-full border rounded-full cursor-pointer
+                    flex items-center justify-center
+                    ${themeConfig[theme].todo.borderColor}
+                    ${
+                      todo.completed
+                        ? "bg-[linear-gradient(to_right,hsl(192,_100%,_67%),hsl(280,_87%,_65%))]"
+                        : themeConfig[theme].todo.backgroundColor
                     }`}
-                  />
+                  >
+                    {todo.completed && (
+                      <img
+                        src="/images/icon-check.svg"
+                        alt="check icon"
+                        className="w-3 h-3"
+                      />
+                    )}
+                  </button>
                 </span>
-                <p className={`${themeConfig[theme].todo.textColor}`}>
+                <p
+                  className={`${themeConfig[theme].todo.textColor} ${todo.completed ? "line-through opacity-50" : ""}`}
+                >
                   {todo.text}
                 </p>
               </div>
