@@ -64,7 +64,8 @@ function App() {
       <TodoList 
         todoList={filteredTodos} 
         toggleTodoCompleted={toggleTodoCompleted}
-        setFilter={setFilter}    
+        setFilter={setFilter}
+        filter={filter}
       />
     </TodoContainer>
   )
