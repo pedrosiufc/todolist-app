@@ -61,8 +61,7 @@ const TodoList = ({
         </ul>
       </div>
 
-      {/* Todo List Footer */}
-      {todoList.length > 0 && (
+      {/* Todo List Footer */}      
       <div className="space-y-4">
         <div
           className={`text-sm flex justify-between p-4  
@@ -128,7 +127,7 @@ const TodoList = ({
           </button>
         </div>
       </div>
-      )}
+      
     </>
   );
 };
