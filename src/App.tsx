@@ -14,6 +14,7 @@ import { TodoContainer } from "./components/TodoContainer";
 function App() { 
 
   const [todoList, setTodoList] = useState<Todo[]>([]);
+  const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
 
   const addTodo = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -34,7 +35,7 @@ function App() {
   };
 
   const toggleTodoCompleted = (id: number) => {
-    console.log(id)
+    // console.log(id)
     const newtodoList = todoList.map(todo =>{
       if(id === todo.id){
         const completed = !todo.completed;
@@ -49,13 +50,24 @@ function App() {
     setTodoList(newtodoList)
   };
 
+   const filteredTodos = todoList.filter(todo =>{
+    if(filter === "active") return !todo.completed
+    if(filter === "completed") return todo.completed
+    return true
+  })
+
   return (
     <TodoContainer>
       <TodoHeader></TodoHeader>
       <TodoForm addTodo={addTodo}></TodoForm>
-      <TodoList todoList={todoList} toggleTodoCompleted={toggleTodoCompleted}></TodoList>
+
+      <TodoList 
+        todoList={filteredTodos} 
+        toggleTodoCompleted={toggleTodoCompleted}
+        setFilter={setFilter}    
+      />
     </TodoContainer>
-  );
+  )
 }
 
 export default App;

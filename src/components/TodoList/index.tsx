@@ -6,9 +6,14 @@ import type { Todo } from "../../App";
 interface TodoListProps {
   todoList: Todo[];
   toggleTodoCompleted: (id: number) => void;
+  setFilter: (filter: "all" | "active" | "completed") => void;
 }
 
-const TodoList = ({ todoList, toggleTodoCompleted }: TodoListProps) => {
+const TodoList = ({
+  todoList,
+  toggleTodoCompleted,
+  setFilter,
+}: TodoListProps) => {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -56,63 +61,69 @@ const TodoList = ({ todoList, toggleTodoCompleted }: TodoListProps) => {
 
       {/* Todo List Footer */}
       {todoList.length > 0 && (
-        <div className="space-y-4">
-          <div
-            className={`text-sm flex justify-between p-4  
+      <div className="space-y-4">
+        <div
+          className={`text-sm flex justify-between p-4  
           ${themeConfig[theme].todo.textColor} 
           ${themeConfig[theme].todo.backgroundColor}
           rounded-b-md`}
-          >
-            <p>{todoList.length} Items Total</p>
+        >
+          <p>{todoList.length} Items Total</p>
 
-            <div className="hidden sm:flex gap-4">
-              <button
-                className={`text-bright-blue cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
-              >
-                All
-              </button>
-              <button
-                className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
-              >
-                Active
-              </button>
-              <button
-                className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
-              >
-                Completed
-              </button>
-            </div>
-
+          <div className="hidden sm:flex gap-4">
             <button
-              className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
-            >
-              Clear Completed
-            </button>
-          </div>
-
-          {/* mobile footer */}
-          <div
-            className={`${themeConfig[theme].todo.backgroundColor}
-        ${themeConfig[theme].todo.textColor}
-         flex justify-center gap-5 py-4 rounded-md sm:hidden mt-4`}
-          >
-            <button
+              onClick={() => setFilter("all")}
               className={`text-bright-blue cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
             >
               All
             </button>
             <button
+              onClick={() => setFilter("active")}
               className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
             >
               Active
             </button>
             <button
+              onClick={() => setFilter("completed")}
               className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
             >
               Completed
             </button>
           </div>
+
+          <button
+            className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
+          >
+            Clear Completed
+          </button>
         </div>
+
+        {/* mobile footer */}
+        <div
+          className={`${themeConfig[theme].todo.backgroundColor}
+        ${themeConfig[theme].todo.textColor}
+         flex justify-center gap-5 py-4 rounded-md sm:hidden mt-4`}
+        >
+          <button
+            onClick={() => setFilter("all")}
+            className={`text-bright-blue cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
+          >
+            All
+          </button>
+          <button
+            onClick={() => setFilter("active")}
+            className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
+          >
+            Active
+          </button>
+          <button
+            onClick={() => setFilter("completed")}
+            className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
+          >
+            Completed
+          </button>
+        </div>
+      </div>
       )}
     </>
   );
