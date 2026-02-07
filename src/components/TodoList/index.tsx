@@ -94,9 +94,7 @@ const TodoList = ({
             >
               Completed
             </button>
-
           </div>
-
           <button
             onClick={clearCompleted}
             className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
