@@ -90,10 +90,11 @@ const TodoList = ({
             </button>
             <button
               onClick={() => setFilter("completed")}
-              className={`${setFilter === "completed" ? 'text-bright-blue' : ''} cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
+              className={`${filter === "completed" ? 'text-bright-blue' : ''} cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
             >
               Completed
             </button>
+
           </div>
 
           <button
