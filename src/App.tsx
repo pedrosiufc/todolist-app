@@ -56,6 +56,11 @@ function App() {
     return true
   })
 
+  const clearCompleted = () => {
+       setTodoList(prev => prev.filter(todo => !todo.completed))
+  }
+
+
   return (
     <TodoContainer>
       <TodoHeader></TodoHeader>
@@ -66,6 +71,7 @@ function App() {
         toggleTodoCompleted={toggleTodoCompleted}
         setFilter={setFilter}
         filter={filter}
+        clearCompleted={clearCompleted}
       />
     </TodoContainer>
   )

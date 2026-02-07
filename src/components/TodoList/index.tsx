@@ -8,6 +8,7 @@ interface TodoListProps {
   toggleTodoCompleted: (id: number) => void;
   setFilter: (filter: "all" | "active" | "completed") => void;
   filter: "all" | "active" | "completed";
+  clearCompleted: () => void
 }
 
 const TodoList = ({
@@ -15,6 +16,7 @@ const TodoList = ({
   toggleTodoCompleted,
   setFilter,
   filter,
+  clearCompleted
 }: TodoListProps) => {
   const { theme } = useContext(ThemeContext);
 
@@ -95,6 +97,7 @@ const TodoList = ({
           </div>
 
           <button
+            onClick={clearCompleted}
             className={`cursor-pointer ${theme === "dark" ? "hover:text-neutral-light-grayish-blue-hover" : "hover:text-neutral-very-dark-grayish-blue"}`}
           >
             Clear Completed
