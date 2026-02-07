@@ -1,7 +1,7 @@
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { useContext } from "react";
 import { themeConfig } from "../../contexts/theme";
-import type { Todo } from "../../App";
+import type { Todo } from "../../hooks/useTodo";
 
 interface TodoListProps {
   todoList: Todo[];
